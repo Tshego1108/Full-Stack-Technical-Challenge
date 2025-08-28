@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Financial Data Uploader</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Financial Data Visualization</h1>
+    <p>Upload an Excel file (.xlsx) with two columns: <b>Month</b> and <b>Amount</b>.</p>
+    <p>Need a sample? <a href="/sample.xlsx">Download sample.xlsx</a></p>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label>User ID <input type="number" id="userId" name="userId" required /></label>
+      <label>Year <input type="number" id="year" name="year" required /></label>
+      <input type="file" name="file" id="file" accept=".xlsx" required />
+      <button type="submit">Upload</button>
+    </form>
+
+    <div id="message" class="message"></div>
+
+    <hr />
+
+    <div id="displaySection" class="hidden">
+      <h2 id="userHeader"></h2>
+      <table id="financeTable">
+        <thead>
+          <tr><th>Month</th><th>Amount</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <canvas id="financeChart"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/main.js"></script>
+</body>
+</html>
